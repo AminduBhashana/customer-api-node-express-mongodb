@@ -57,7 +57,7 @@ You can interact with the API using tools like Postman or cURL.
 
 ## API Endpoints
 
-- Get all customers ::  
+- Get all customers :: 
 **GET** `/api/customers`
 
 - Get a specific customer by ID :: 
