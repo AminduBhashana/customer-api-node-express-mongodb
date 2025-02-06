@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
     res.send("Welcome!");
 });
 
+//Get All Customers
 app.get('/api/customers', async (req, res) => {
     try{
         const result = await Customer.find();
@@ -30,6 +31,7 @@ app.get('/api/customers', async (req, res) => {
     }  
 });
 
+//Get specific Customer using ID
 app.get('/api/customers/:id', async (req, res) =>{
     try{
         const {id: customerId} = req.params;
@@ -46,6 +48,7 @@ app.get('/api/customers/:id', async (req, res) =>{
    
 });
 
+//Get Order by orderId
 app.get('/api/orders/:id', async (req, res) =>{
     try{
         const {id: orderId} = req.params;
@@ -62,7 +65,7 @@ app.get('/api/orders/:id', async (req, res) =>{
    
 });
 
-
+//Update the specific customer details
 app.put('/api/customers/:id', async (req, res) => {
     try{
         const customerId = req.params.id;
@@ -85,6 +88,7 @@ app.patch('/api/customers/:id',async (req, res) => {
     }   
 });
 
+//Update the specific order details
 app.patch('/api/orders/:id', async (req, res) => {
     const orderId = req.params.id;
     req.body._id = orderId;
@@ -105,6 +109,7 @@ app.patch('/api/orders/:id', async (req, res) => {
     }
 });
 
+//Add new customers
 app.post('/api/customers', async (req, res) => {
     console.log(req.body);
     const customer = new Customer(req.body);
@@ -116,6 +121,7 @@ app.post('/api/customers', async (req, res) => {
     }
 });
 
+//Delete a customer
 app.delete('/api/customers/:id', async (req, res) => {
     try{
         const customerId = req.params.id;
